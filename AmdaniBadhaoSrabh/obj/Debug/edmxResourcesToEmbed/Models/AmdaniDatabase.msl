@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="amdani_badaoModelStoreContainer" CdmEntityContainer="amdani_badaoEntities">
+    <EntitySetMapping Name="base_weather">
+      <EntityTypeMapping TypeName="amdani_badaoModel.base_weather">
+        <MappingFragment StoreEntitySet="base_weather">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date_f" ColumnName="date_f" />
+          <ScalarProperty Name="p" ColumnName="p" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="baseweathers">
+      <EntityTypeMapping TypeName="amdani_badaoModel.baseweather">
+        <MappingFragment StoreEntitySet="baseweather">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PFactor" ColumnName="PFactor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crop_advisory_by_crop">
+      <EntityTypeMapping TypeName="amdani_badaoModel.crop_advisory_by_crop">
+        <MappingFragment StoreEntitySet="crop_advisory_by_crop">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DAP" ColumnName="DAP" />
+          <ScalarProperty Name="Growth" ColumnName="Growth" />
+          <ScalarProperty Name="Development" ColumnName="Development" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="img_zoom" ColumnName="img_zoom" />
+          <ScalarProperty Name="icons" ColumnName="icons" />
+          <ScalarProperty Name="Variety" ColumnName="Variety" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crop_advisory_user_response">
+      <EntityTypeMapping TypeName="amdani_badaoModel.crop_advisory_user_response">
+        <MappingFragment StoreEntitySet="crop_advisory_user_response">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="crope_Advisory_id" ColumnName="crope_Advisory_id" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="Crop_name" ColumnName="Crop_name" />
+          <ScalarProperty Name="updated_on" ColumnName="updated_on" />
+          <ScalarProperty Name="Irid" ColumnName="Irid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crop_yield_value">
+      <EntityTypeMapping TypeName="amdani_badaoModel.crop_yield_value">
+        <MappingFragment StoreEntitySet="crop_yield_value">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Crop" ColumnName="Crop" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Area_Hectare" ColumnName="Area_Hectare" />
+          <ScalarProperty Name="Production_Tonnes" ColumnName="Production_Tonnes" />
+          <ScalarProperty Name="Yield_Tonnes" ColumnName="Yield_Tonnes" />
+          <ScalarProperty Name="Yield_qa" ColumnName="Yield_qa" />
+          <ScalarProperty Name="Yield_kg" ColumnName="Yield_kg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cropes">
+      <EntityTypeMapping TypeName="amdani_badaoModel.crope">
+        <MappingFragment StoreEntitySet="crope">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BaseTemp" ColumnName="BaseTemp" />
+          <ScalarProperty Name="HarvestStageCode" ColumnName="HarvestStageCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cropvarietystags">
+      <EntityTypeMapping TypeName="amdani_badaoModel.cropvarietystag">
+        <MappingFragment StoreEntitySet="cropvarietystag">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="GDD" ColumnName="GDD" />
+          <ScalarProperty Name="IWCPE" ColumnName="IWCPE" />
+          <ScalarProperty Name="KcFactor" ColumnName="KcFactor" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="VarietyId" ColumnName="VarietyId" />
+          <ScalarProperty Name="OptMax" ColumnName="OptMax" />
+          <ScalarProperty Name="OptMin" ColumnName="OptMin" />
+          <ScalarProperty Name="IdealRH" ColumnName="IdealRH" />
+          <ScalarProperty Name="PhotoperiodismId" ColumnName="PhotoperiodismId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="effective_rainfal">
+      <EntityTypeMapping TypeName="amdani_badaoModel.effective_rainfal">
+        <MappingFragment StoreEntitySet="effective_rainfal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Rainfall" ColumnName="Rainfall" />
+          <ScalarProperty Name="Effective_Rainfall" ColumnName="Effective_Rainfall" />
+          <ScalarProperty Name="soil_layer" ColumnName="soil_layer" />
+          <ScalarProperty Name="soil_moisure" ColumnName="soil_moisure" />
+          <ScalarProperty Name="Effective_Rainfall_r" ColumnName="Effective_Rainfall_r" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="irrigations">
+      <EntityTypeMapping TypeName="amdani_badaoModel.irrigation">
+        <MappingFragment StoreEntitySet="irrigation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_cordinates">
+      <EntityTypeMapping TypeName="amdani_badaoModel.map_cordinates">
+        <MappingFragment StoreEntitySet="map_cordinates">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Lang" ColumnName="Lang" />
+          <ScalarProperty Name="user_map_id" ColumnName="user_map_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_dcc_crop">
+      <EntityTypeMapping TypeName="amdani_badaoModel.new_dcc_crop">
+        <MappingFragment StoreEntitySet="new_dcc_crop">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Development" ColumnName="Development" />
+          <ScalarProperty Name="DAP" ColumnName="DAP" />
+          <ScalarProperty Name="Growth" ColumnName="Growth" />
+          <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pesttypes">
+      <EntityTypeMapping TypeName="amdani_badaoModel.pesttype">
+        <MappingFragment StoreEntitySet="pesttype">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ImpactContribution" ColumnName="ImpactContribution" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pestweatherbaselines">
+      <EntityTypeMapping TypeName="amdani_badaoModel.pestweatherbaseline">
+        <MappingFragment StoreEntitySet="pestweatherbaseline">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="BaseTemp" ColumnName="BaseTemp" />
+          <ScalarProperty Name="MaxTemp" ColumnName="MaxTemp" />
+          <ScalarProperty Name="MeanRH" ColumnName="MeanRH" />
+          <ScalarProperty Name="PestTypeId" ColumnName="PestTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stages">
+      <EntityTypeMapping TypeName="amdani_badaoModel.stage">
+        <MappingFragment StoreEntitySet="stage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statepests">
+      <EntityTypeMapping TypeName="amdani_badaoModel.statepest">
+        <MappingFragment StoreEntitySet="statepest">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="PestId" ColumnName="PestId" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stfs">
+      <EntityTypeMapping TypeName="amdani_badaoModel.stf">
+        <MappingFragment StoreEntitySet="stf">
+          <ScalarProperty Name="State_name" ColumnName="State_name" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="date_c" ColumnName="date_c" />
+          <ScalarProperty Name="Max__Temp" ColumnName="Max _Temp" />
+          <ScalarProperty Name="Min_Temp" ColumnName="Min_Temp" />
+          <ScalarProperty Name="Rainfall" ColumnName="Rainfall" />
+          <ScalarProperty Name="Mean_RH" ColumnName="Mean_RH" />
+          <ScalarProperty Name="Mean_Temp" ColumnName="Mean_Temp" />
+          <ScalarProperty Name="p" ColumnName="p" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="month_c" ColumnName="month_c" />
+          <ScalarProperty Name="date_d" ColumnName="date_d" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="amdani_badaoModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="amdani_badaoModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
+          <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+          <ScalarProperty Name="State_Name" ColumnName="State_Name" />
+          <ScalarProperty Name="Dist_Name" ColumnName="Dist_Name" />
+          <ScalarProperty Name="Taluka_name" ColumnName="Taluka_name" />
+          <ScalarProperty Name="Village_name" ColumnName="Village_name" />
+          <ScalarProperty Name="Active_crope_Ad" ColumnName="Active_crope_Ad" />
+          <ScalarProperty Name="User_Reg" ColumnName="User_Reg" />
+          <ScalarProperty Name="Last_Active" ColumnName="Last_Active" />
+          <ScalarProperty Name="Home_Lat" ColumnName="Home_Lat" />
+          <ScalarProperty Name="Home_Lang" ColumnName="Home_Lang" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Email_id" ColumnName="Email_id" />
+          <ScalarProperty Name="GCM_Key" ColumnName="GCM_Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_land_by_crope">
+      <EntityTypeMapping TypeName="amdani_badaoModel.user_land_by_crope">
+        <MappingFragment StoreEntitySet="user_land_by_crope">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Crop_Name" ColumnName="Crop_Name" />
+          <ScalarProperty Name="Irrigation_type" ColumnName="Irrigation_type" />
+          <ScalarProperty Name="Sowing_date" ColumnName="Sowing_date" />
+          <ScalarProperty Name="Land_id" ColumnName="Land_id" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="Crop_id" ColumnName="Crop_id" />
+          <ScalarProperty Name="Variety_id" ColumnName="Variety_id" />
+          <ScalarProperty Name="Variety_Name" ColumnName="Variety_Name" />
+          <ScalarProperty Name="Soil" ColumnName="Soil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_map">
+      <EntityTypeMapping TypeName="amdani_badaoModel.user_map">
+        <MappingFragment StoreEntitySet="user_map">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Map_name" ColumnName="Map_name" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="Plot_State" ColumnName="Plot_State" />
+          <ScalarProperty Name="Plot_District" ColumnName="Plot_District" />
+          <ScalarProperty Name="Plot_Taluka" ColumnName="Plot_Taluka" />
+          <ScalarProperty Name="Plot_Village" ColumnName="Plot_Village" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="varieties">
+      <EntityTypeMapping TypeName="amdani_badaoModel.variety">
+        <MappingFragment StoreEntitySet="variety">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="weathers">
+      <EntityTypeMapping TypeName="amdani_badaoModel.weather">
+        <MappingFragment StoreEntitySet="weather">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="MeanRH" ColumnName="MeanRH" />
+          <ScalarProperty Name="Rainfall" ColumnName="Rainfall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="weather_master">
+      <EntityTypeMapping TypeName="amdani_badaoModel.weather_master">
+        <MappingFragment StoreEntitySet="weather_master">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="date_c" ColumnName="date_c" />
+          <ScalarProperty Name="Max__Temp" ColumnName="Max _Temp" />
+          <ScalarProperty Name="Min_Temp" ColumnName="Min_Temp" />
+          <ScalarProperty Name="Rainfall" ColumnName="Rainfall" />
+          <ScalarProperty Name="Mean_RH" ColumnName="Mean_RH" />
+          <ScalarProperty Name="Mean_Temp" ColumnName="Mean_Temp" />
+          <ScalarProperty Name="P" ColumnName="P" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crop_calculation">
+      <EntityTypeMapping TypeName="amdani_badaoModel.crop_calculation">
+        <MappingFragment StoreEntitySet="crop_calculation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Crop_name" ColumnName="Crop_name" />
+          <ScalarProperty Name="Variety" ColumnName="Variety" />
+          <ScalarProperty Name="Growth_Stages" ColumnName="Growth_Stages" />
+          <ScalarProperty Name="GDD_Req" ColumnName="GDD_Req" />
+          <ScalarProperty Name="AGDD" ColumnName="AGDD" />
+          <ScalarProperty Name="Stage_Completion" ColumnName="Stage_Completion" />
+          <ScalarProperty Name="Kc" ColumnName="Kc" />
+          <ScalarProperty Name="Base__Temp" ColumnName="Base _Temp" />
+          <ScalarProperty Name="Duration_in_Days_1" ColumnName="Duration_in_Days_1" />
+          <ScalarProperty Name="Cpe_ratio" ColumnName="Cpe_ratio" />
+          <ScalarProperty Name="Duration_in_Days" ColumnName="Duration_in_Days" />
+          <ScalarProperty Name="Cucmulative_days" ColumnName="Cucmulative_days" />
+          <ScalarProperty Name="ideal_min" ColumnName="ideal_min" />
+          <ScalarProperty Name="ideal_max" ColumnName="ideal_max" />
+          <ScalarProperty Name="ideal_meanrh" ColumnName="ideal_meanrh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dists">
+      <EntityTypeMapping TypeName="amdani_badaoModel.dist">
+        <MappingFragment StoreEntitySet="dist">
+          <ScalarProperty Name="districtCode" ColumnName="districtCode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="stateCode" ColumnName="stateCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="amdani_badaoModel.state">
+        <MappingFragment StoreEntitySet="state">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="stateCode" ColumnName="stateCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="villages">
+      <EntityTypeMapping TypeName="amdani_badaoModel.village">
+        <MappingFragment StoreEntitySet="village">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="tehsilCode" ColumnName="tehsilCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="amdani_badaoModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="amdani_badaoModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="amdani_badaoModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="amdani_badaoModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="amdani_badaoModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="amdani_badaoModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="amdani_badaoModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

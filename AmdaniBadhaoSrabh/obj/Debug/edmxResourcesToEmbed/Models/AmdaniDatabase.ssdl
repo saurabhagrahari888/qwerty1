@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="amdani_badaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="base_weather">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_f" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="p" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="baseweather">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="varchar(max)" Nullable="false" />
+    <Property Name="PFactor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crop_advisory_by_crop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="600" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DAP" Type="nvarchar" MaxLength="600" />
+    <Property Name="Growth" Type="nvarchar" MaxLength="600" />
+    <Property Name="Development" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="img" Type="nvarchar" MaxLength="600" />
+    <Property Name="img_zoom" Type="nvarchar" MaxLength="600" />
+    <Property Name="icons" Type="nvarchar" MaxLength="600" />
+    <Property Name="Variety" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crop_advisory_user_response">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="crope_Advisory_id" Type="int" Nullable="false" />
+    <Property Name="response" Type="smallint" Nullable="false" />
+    <Property Name="Crop_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="updated_on" Type="datetime" Nullable="false" />
+    <Property Name="Irid" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'amdani_badao.dbo.crop_calculation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="crop_calculation">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Crop_name" />
+      <PropertyRef Name="Variety" />
+      <PropertyRef Name="Growth_Stages" />
+      <PropertyRef Name="GDD_Req" />
+      <PropertyRef Name="AGDD" />
+      <PropertyRef Name="Stage_Completion" />
+      <PropertyRef Name="Kc" />
+      <PropertyRef Name="Base _Temp" />
+      <PropertyRef Name="Duration_in_Days_1" />
+      <PropertyRef Name="Cpe_ratio" />
+      <PropertyRef Name="Duration_in_Days" />
+      <PropertyRef Name="Cucmulative_days" />
+      <PropertyRef Name="ideal_min" />
+      <PropertyRef Name="ideal_max" />
+      <PropertyRef Name="ideal_meanrh" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Crop_name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Variety" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Growth_Stages" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="GDD_Req" Type="float" Nullable="false" />
+    <Property Name="AGDD" Type="float" Nullable="false" />
+    <Property Name="Stage_Completion" Type="float" Nullable="false" />
+    <Property Name="Kc" Type="float" Nullable="false" />
+    <Property Name="Base _Temp" Type="float" Nullable="false" />
+    <Property Name="Duration_in_Days_1" Type="float" Nullable="false" />
+    <Property Name="Cpe_ratio" Type="float" Nullable="false" />
+    <Property Name="Duration_in_Days" Type="float" Nullable="false" />
+    <Property Name="Cucmulative_days" Type="float" Nullable="false" />
+    <Property Name="ideal_min" Type="float" Nullable="false" />
+    <Property Name="ideal_max" Type="float" Nullable="false" />
+    <Property Name="ideal_meanrh" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crop_yield_value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="District" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Crop" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Year" Type="float" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Area_Hectare" Type="float" Nullable="false" />
+    <Property Name="Production_Tonnes" Type="float" Nullable="false" />
+    <Property Name="Yield_Tonnes" Type="float" Nullable="false" />
+    <Property Name="Yield_qa" Type="float" Nullable="false" />
+    <Property Name="Yield_kg" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crope">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="BaseTemp" Type="int" Nullable="false" />
+    <Property Name="HarvestStageCode" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cropvarietystag">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropId" Type="int" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="GDD" Type="int" Nullable="false" />
+    <Property Name="IWCPE" Type="int" Nullable="false" />
+    <Property Name="KcFactor" Type="int" Nullable="false" />
+    <Property Name="StageId" Type="int" Nullable="false" />
+    <Property Name="VarietyId" Type="int" Nullable="false" />
+    <Property Name="OptMax" Type="int" Nullable="false" />
+    <Property Name="OptMin" Type="int" Nullable="false" />
+    <Property Name="IdealRH" Type="int" Nullable="false" />
+    <Property Name="PhotoperiodismId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'amdani_badao.dbo.dist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="dist">
+    <Key>
+      <PropertyRef Name="districtCode" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="stateCode" />
+    </Key>
+    <Property Name="districtCode" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="stateCode" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="effective_rainfal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rainfall" Type="float" Nullable="false" />
+    <Property Name="Effective_Rainfall" Type="float" Nullable="false" />
+    <Property Name="soil_layer" Type="float" Nullable="false" />
+    <Property Name="soil_moisure" Type="float" Nullable="false" />
+    <Property Name="Effective_Rainfall_r" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="irrigation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="map_cordinates">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lat" Type="decimal" Precision="10" Scale="4" />
+    <Property Name="Lang" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+    <Property Name="user_map_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="new_dcc_crop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Development" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="DAP" Type="float" Nullable="false" />
+    <Property Name="Growth" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pesttype">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImpactContribution" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pestweatherbaseline">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BaseTemp" Type="int" Nullable="false" />
+    <Property Name="MaxTemp" Type="int" Nullable="false" />
+    <Property Name="MeanRH" Type="int" Nullable="false" />
+    <Property Name="PestTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'amdani_badao.dbo.state' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="stateCode" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="stateCode" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="statepest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropId" Type="int" Nullable="false" />
+    <Property Name="PestId" Type="int" Nullable="false" />
+    <Property Name="StageId" Type="int" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="State_name" Type="nvarchar" MaxLength="14" />
+    <Property Name="District" Type="nvarchar" MaxLength="16" />
+    <Property Name="date_c" Type="int" />
+    <Property Name="Max _Temp" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="Min_Temp" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="Rainfall" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="Mean_RH" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="Mean_Temp" Type="nvarchar" MaxLength="4" />
+    <Property Name="p" Type="decimal" Precision="3" Scale="2" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="month_c" Type="float" Nullable="false" />
+    <Property Name="date_d" Type="nvarchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 1">
+          <Property Name="COL 1" Type="nvarchar" MaxLength="19" />
+          <Property Name="COL 2" Type="nvarchar" MaxLength="21" />
+          <Property Name="COL 3" Type="nvarchar" MaxLength="21" />
+          <Property Name="COL 4" Type="nvarchar" MaxLength="55" />
+          <Property Name="COL 5" Type="nvarchar" MaxLength="78" />
+          <Property Name="COL 6" Type="nvarchar" MaxLength="157" />
+          <Property Name="COL 7" Type="nvarchar" MaxLength="52" />
+          <Property Name="COL 8" Type="nvarchar" MaxLength="28" />
+          <Property Name="COL 9" Type="nvarchar" MaxLength="10" />
+          <Property Name="COL 10" Type="nvarchar" MaxLength="19" />
+          <Property Name="COL 11" Type="nvarchar" MaxLength="19" />
+          <Property Name="COL 12" Type="nvarchar" MaxLength="18" />
+          <Property Name="COL 13" Type="nvarchar" MaxLength="17" />
+          <Property Name="COL 14" Type="nvarchar" MaxLength="7" />
+          <Property Name="COL 15" Type="nvarchar" MaxLength="3" />
+          <Property Name="COL 16" Type="nvarchar" MaxLength="2" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 11' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 11">
+          <Property Name="COL 1" Type="nvarchar" MaxLength="19" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 13' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 13">
+          <Property Name="COL 1" Type="nvarchar" MaxLength="7" />
+          <Property Name="COL 2" Type="int" />
+          <Property Name="COL 3" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 14' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 14">
+          <Property Name="COL 1" Type="int" />
+          <Property Name="COL 2" Type="int" />
+          <Property Name="COL 3" Type="int" />
+          <Property Name="COL 4" Type="decimal" Precision="5" Scale="1" />
+          <Property Name="COL 5" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="COL 6" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="COL 7" Type="int" />
+          <Property Name="COL 8" Type="int" />
+          <Property Name="COL 9" Type="int" />
+          <Property Name="COL 10" Type="int" />
+          <Property Name="COL 11" Type="int" />
+          <Property Name="COL 12" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 24' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 24">
+          <Property Name="COL 1" Type="nvarchar" MaxLength="10" />
+          <Property Name="COL 2" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 27' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 27">
+          <Property Name="COL 1" Type="nvarchar" MaxLength="9" />
+          <Property Name="COL 2" Type="nvarchar" MaxLength="12" />
+          <Property Name="COL 3" Type="nvarchar" MaxLength="21" />
+          <Property Name="COL 4" Type="decimal" Precision="5" Scale="1" />
+          <Property Name="COL 5" Type="decimal" Precision="5" Scale="1" />
+          <Property Name="COL 6" Type="decimal" Precision="5" Scale="1" />
+          <Property Name="COL 7" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="COL 8" Type="int" />
+          <Property Name="COL 9" Type="int" />
+          <Property Name="COL 10" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="COL 11" Type="int" />
+          <Property Name="COL 12" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.table 30' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="table 30">
+          <Property Name="COL 1" Type="nvarchar" MaxLength="4" />
+          <Property Name="COL 2" Type="nvarchar" MaxLength="9" />
+          <Property Name="COL 3" Type="nvarchar" MaxLength="16" />
+          <Property Name="COL 4" Type="nvarchar" MaxLength="3" />
+          <Property Name="COL 5" Type="nvarchar" MaxLength="78" />
+          <Property Name="COL 6" Type="nvarchar" MaxLength="157" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'amdani_badao.dbo.tahsil' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tahsil">
+          <Property Name="tehsilCode" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="600" />
+          <Property Name="districtCode" Type="nvarchar" MaxLength="12" />
+        </EntityType>-->
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="600" />
+    <Property Name="Phone_no" Type="nvarchar" MaxLength="200" />
+    <Property Name="Image_url" Type="nvarchar" MaxLength="600" />
+    <Property Name="State_Name" Type="nvarchar" MaxLength="600" />
+    <Property Name="Dist_Name" Type="nvarchar" MaxLength="600" />
+    <Property Name="Taluka_name" Type="nvarchar" MaxLength="600" />
+    <Property Name="Village_name" Type="nvarchar" MaxLength="600" />
+    <Property Name="Active_crope_Ad" Type="int" />
+    <Property Name="User_Reg" Type="datetime" Nullable="false" />
+    <Property Name="Last_Active" Type="datetime" Nullable="false" />
+    <Property Name="Home_Lat" Type="nvarchar" MaxLength="600" />
+    <Property Name="Home_Lang" Type="nvarchar" MaxLength="600" />
+    <Property Name="Language" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Email_id" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="GCM_Key" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_land_by_crope">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Crop_Name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Irrigation_type" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Sowing_date" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Land_id" Type="int" Nullable="false" />
+    <Property Name="active" Type="datetime" Nullable="false" />
+    <Property Name="Crop_id" Type="int" />
+    <Property Name="Variety_id" Type="int" />
+    <Property Name="Variety_Name" Type="nvarchar" MaxLength="600" />
+    <Property Name="Soil" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_map">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Map_name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Size" Type="real" Nullable="false" />
+    <Property Name="User_id" Type="int" Nullable="false" />
+    <Property Name="Plot_State" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Plot_District" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Plot_Taluka" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="Plot_Village" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="variety">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'amdani_badao.dbo.village' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="village">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="tehsilCode" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="tehsilCode" Type="nvarchar" MaxLength="600" Nullable="false" />
+  </EntityType>
+  <EntityType Name="weather">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictId" Type="int" Nullable="false" />
+    <Property Name="Min" Type="int" Nullable="false" />
+    <Property Name="Max" Type="int" Nullable="false" />
+    <Property Name="MeanRH" Type="int" Nullable="false" />
+    <Property Name="Rainfall" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="weather_master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="District" Type="nvarchar" MaxLength="600" Nullable="false" />
+    <Property Name="date_c" Type="float" Nullable="false" />
+    <Property Name="Max _Temp" Type="float" Nullable="false" />
+    <Property Name="Min_Temp" Type="float" Nullable="false" />
+    <Property Name="Rainfall" Type="float" Nullable="false" />
+    <Property Name="Mean_RH" Type="float" Nullable="false" />
+    <Property Name="Mean_Temp" Type="float" Nullable="false" />
+    <Property Name="P" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="crop_advisory_user_response$crop_advisory_user_response_ibfk_2">
+    <End Role="user_land_by_crope" Type="Self.user_land_by_crope" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="crop_advisory_user_response" Type="Self.crop_advisory_user_response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_land_by_crope">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="crop_advisory_user_response">
+        <PropertyRef Name="crope_Advisory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_land_by_crope$user_land_by_crope_ibfk_1">
+    <End Role="user_map" Type="Self.user_map" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_land_by_crope" Type="Self.user_land_by_crope" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_map">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_land_by_crope">
+        <PropertyRef Name="Land_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_map$abcd">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_map" Type="Self.user_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_map">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="amdani_badaoModelStoreContainer">
+    <EntitySet Name="base_weather" EntityType="Self.base_weather" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="baseweather" EntityType="Self.baseweather" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crop_advisory_by_crop" EntityType="Self.crop_advisory_by_crop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crop_advisory_user_response" EntityType="Self.crop_advisory_user_response" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crop_yield_value" EntityType="Self.crop_yield_value" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crope" EntityType="Self.crope" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cropvarietystag" EntityType="Self.cropvarietystag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="effective_rainfal" EntityType="Self.effective_rainfal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="irrigation" EntityType="Self.irrigation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="map_cordinates" EntityType="Self.map_cordinates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="new_dcc_crop" EntityType="Self.new_dcc_crop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pesttype" EntityType="Self.pesttype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pestweatherbaseline" EntityType="Self.pestweatherbaseline" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stage" EntityType="Self.stage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="statepest" EntityType="Self.statepest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stf" EntityType="Self.stf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_land_by_crope" EntityType="Self.user_land_by_crope" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_map" EntityType="Self.user_map" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="variety" EntityType="Self.variety" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="weather" EntityType="Self.weather" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="weather_master" EntityType="Self.weather_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crop_calculation" EntityType="Self.crop_calculation" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [crop_calculation].[id] AS [id], 
+    [crop_calculation].[Crop_name] AS [Crop_name], 
+    [crop_calculation].[Variety] AS [Variety], 
+    [crop_calculation].[Growth_Stages] AS [Growth_Stages], 
+    [crop_calculation].[GDD_Req] AS [GDD_Req], 
+    [crop_calculation].[AGDD] AS [AGDD], 
+    [crop_calculation].[Stage_Completion] AS [Stage_Completion], 
+    [crop_calculation].[Kc] AS [Kc], 
+    [crop_calculation].[Base _Temp] AS [Base _Temp], 
+    [crop_calculation].[Duration_in_Days_1] AS [Duration_in_Days_1], 
+    [crop_calculation].[Cpe_ratio] AS [Cpe_ratio], 
+    [crop_calculation].[Duration_in_Days] AS [Duration_in_Days], 
+    [crop_calculation].[Cucmulative_days] AS [Cucmulative_days], 
+    [crop_calculation].[ideal_min] AS [ideal_min], 
+    [crop_calculation].[ideal_max] AS [ideal_max], 
+    [crop_calculation].[ideal_meanrh] AS [ideal_meanrh]
+    FROM [dbo].[crop_calculation] AS [crop_calculation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="dist" EntityType="Self.dist" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [dist].[districtCode] AS [districtCode], 
+    [dist].[name] AS [name], 
+    [dist].[stateCode] AS [stateCode]
+    FROM [dbo].[dist] AS [dist]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="state" EntityType="Self.state" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [state].[id] AS [id], 
+    [state].[name] AS [name], 
+    [state].[stateCode] AS [stateCode]
+    FROM [dbo].[state] AS [state]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="village" EntityType="Self.village" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [village].[id] AS [id], 
+    [village].[name] AS [name], 
+    [village].[tehsilCode] AS [tehsilCode]
+    FROM [dbo].[village] AS [village]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="crop_advisory_user_response$crop_advisory_user_response_ibfk_2" Association="Self.crop_advisory_user_response$crop_advisory_user_response_ibfk_2">
+      <End Role="user_land_by_crope" EntitySet="user_land_by_crope" />
+      <End Role="crop_advisory_user_response" EntitySet="crop_advisory_user_response" />
+    </AssociationSet>
+    <AssociationSet Name="user_land_by_crope$user_land_by_crope_ibfk_1" Association="Self.user_land_by_crope$user_land_by_crope_ibfk_1">
+      <End Role="user_map" EntitySet="user_map" />
+      <End Role="user_land_by_crope" EntitySet="user_land_by_crope" />
+    </AssociationSet>
+    <AssociationSet Name="user_map$abcd" Association="Self.user_map$abcd">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_map" EntitySet="user_map" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

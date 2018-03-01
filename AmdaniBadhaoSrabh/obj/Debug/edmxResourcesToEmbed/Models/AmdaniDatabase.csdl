@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="amdani_badaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="base_weather">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date_f" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="p" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="baseweather">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PFactor" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crop_advisory_by_crop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAP" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Growth" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Development" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="img" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="img_zoom" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="icons" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Variety" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crop_advisory_user_response">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="crope_Advisory_id" Type="Int32" Nullable="false" />
+    <Property Name="response" Type="Int16" Nullable="false" />
+    <Property Name="Crop_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="updated_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Irid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user_land_by_crope" Relationship="Self.crop_advisory_user_response_crop_advisory_user_response_ibfk_2" FromRole="crop_advisory_user_response" ToRole="user_land_by_crope" />
+  </EntityType>
+  <EntityType Name="crop_yield_value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Crop" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Year" Type="Double" Nullable="false" />
+    <Property Name="Season" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Area_Hectare" Type="Double" Nullable="false" />
+    <Property Name="Production_Tonnes" Type="Double" Nullable="false" />
+    <Property Name="Yield_Tonnes" Type="Double" Nullable="false" />
+    <Property Name="Yield_qa" Type="Double" Nullable="false" />
+    <Property Name="Yield_kg" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crope">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BaseTemp" Type="Int32" Nullable="false" />
+    <Property Name="HarvestStageCode" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cropvarietystag">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CropId" Type="Int32" Nullable="false" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="GDD" Type="Int32" Nullable="false" />
+    <Property Name="IWCPE" Type="Int32" Nullable="false" />
+    <Property Name="KcFactor" Type="Int32" Nullable="false" />
+    <Property Name="StageId" Type="Int32" Nullable="false" />
+    <Property Name="VarietyId" Type="Int32" Nullable="false" />
+    <Property Name="OptMax" Type="Int32" Nullable="false" />
+    <Property Name="OptMin" Type="Int32" Nullable="false" />
+    <Property Name="IdealRH" Type="Int32" Nullable="false" />
+    <Property Name="PhotoperiodismId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="effective_rainfal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rainfall" Type="Double" Nullable="false" />
+    <Property Name="Effective_Rainfall" Type="Double" Nullable="false" />
+    <Property Name="soil_layer" Type="Double" Nullable="false" />
+    <Property Name="soil_moisure" Type="Double" Nullable="false" />
+    <Property Name="Effective_Rainfall_r" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="irrigation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="map_cordinates">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lat" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="Lang" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+    <Property Name="user_map_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="new_dcc_crop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Development" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DAP" Type="Double" Nullable="false" />
+    <Property Name="Growth" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Suggestion" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pesttype">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImpactContribution" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pestweatherbaseline">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BaseTemp" Type="Int32" Nullable="false" />
+    <Property Name="MaxTemp" Type="Int32" Nullable="false" />
+    <Property Name="MeanRH" Type="Int32" Nullable="false" />
+    <Property Name="PestTypeId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="statepest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CropId" Type="Int32" Nullable="false" />
+    <Property Name="PestId" Type="Int32" Nullable="false" />
+    <Property Name="StageId" Type="Int32" Nullable="false" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="State_name" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="date_c" Type="Int32" />
+    <Property Name="Max__Temp" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="Min_Temp" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="Rainfall" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="Mean_RH" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="Mean_Temp" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="p" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="month_c" Type="Double" Nullable="false" />
+    <Property Name="date_d" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_no" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Image_url" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="State_Name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Dist_Name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Taluka_name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Village_name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Active_crope_Ad" Type="Int32" />
+    <Property Name="User_Reg" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Last_Active" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Home_Lat" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Home_Lang" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Language" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email_id" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GCM_Key" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="user_map" Relationship="Self.user_map_abcd" FromRole="user" ToRole="user_map" />
+  </EntityType>
+  <EntityType Name="user_land_by_crope">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Crop_Name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Irrigation_type" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sowing_date" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Land_id" Type="Int32" Nullable="false" />
+    <Property Name="active" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Crop_id" Type="Int32" />
+    <Property Name="Variety_id" Type="Int32" />
+    <Property Name="Variety_Name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Soil" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="crop_advisory_user_response" Relationship="Self.crop_advisory_user_response_crop_advisory_user_response_ibfk_2" FromRole="user_land_by_crope" ToRole="crop_advisory_user_response" />
+    <NavigationProperty Name="user_map" Relationship="Self.user_land_by_crope_user_land_by_crope_ibfk_1" FromRole="user_land_by_crope" ToRole="user_map" />
+  </EntityType>
+  <EntityType Name="user_map">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Map_name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Size" Type="Single" Nullable="false" />
+    <Property Name="User_id" Type="Int32" Nullable="false" />
+    <Property Name="Plot_State" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plot_District" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plot_Taluka" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plot_Village" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.user_map_abcd" FromRole="user_map" ToRole="user" />
+    <NavigationProperty Name="user_land_by_crope" Relationship="Self.user_land_by_crope_user_land_by_crope_ibfk_1" FromRole="user_map" ToRole="user_land_by_crope" />
+  </EntityType>
+  <EntityType Name="variety">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="weather">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DistrictId" Type="Int32" Nullable="false" />
+    <Property Name="Min" Type="Int32" Nullable="false" />
+    <Property Name="Max" Type="Int32" Nullable="false" />
+    <Property Name="MeanRH" Type="Int32" Nullable="false" />
+    <Property Name="Rainfall" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="weather_master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="District" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_c" Type="Double" Nullable="false" />
+    <Property Name="Max__Temp" Type="Double" Nullable="false" />
+    <Property Name="Min_Temp" Type="Double" Nullable="false" />
+    <Property Name="Rainfall" Type="Double" Nullable="false" />
+    <Property Name="Mean_RH" Type="Double" Nullable="false" />
+    <Property Name="Mean_Temp" Type="Double" Nullable="false" />
+    <Property Name="P" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crop_calculation">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Crop_name" />
+      <PropertyRef Name="Variety" />
+      <PropertyRef Name="Growth_Stages" />
+      <PropertyRef Name="GDD_Req" />
+      <PropertyRef Name="AGDD" />
+      <PropertyRef Name="Stage_Completion" />
+      <PropertyRef Name="Kc" />
+      <PropertyRef Name="Base__Temp" />
+      <PropertyRef Name="Duration_in_Days_1" />
+      <PropertyRef Name="Cpe_ratio" />
+      <PropertyRef Name="Duration_in_Days" />
+      <PropertyRef Name="Cucmulative_days" />
+      <PropertyRef Name="ideal_min" />
+      <PropertyRef Name="ideal_max" />
+      <PropertyRef Name="ideal_meanrh" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Crop_name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Variety" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Growth_Stages" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GDD_Req" Type="Double" Nullable="false" />
+    <Property Name="AGDD" Type="Double" Nullable="false" />
+    <Property Name="Stage_Completion" Type="Double" Nullable="false" />
+    <Property Name="Kc" Type="Double" Nullable="false" />
+    <Property Name="Base__Temp" Type="Double" Nullable="false" />
+    <Property Name="Duration_in_Days_1" Type="Double" Nullable="false" />
+    <Property Name="Cpe_ratio" Type="Double" Nullable="false" />
+    <Property Name="Duration_in_Days" Type="Double" Nullable="false" />
+    <Property Name="Cucmulative_days" Type="Double" Nullable="false" />
+    <Property Name="ideal_min" Type="Double" Nullable="false" />
+    <Property Name="ideal_max" Type="Double" Nullable="false" />
+    <Property Name="ideal_meanrh" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dist">
+    <Key>
+      <PropertyRef Name="districtCode" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="stateCode" />
+    </Key>
+    <Property Name="districtCode" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stateCode" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="stateCode" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stateCode" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="village">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="tehsilCode" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tehsilCode" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="crop_advisory_user_response_crop_advisory_user_response_ibfk_2">
+    <End Role="user_land_by_crope" Type="Self.user_land_by_crope" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="crop_advisory_user_response" Type="Self.crop_advisory_user_response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_land_by_crope">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="crop_advisory_user_response">
+        <PropertyRef Name="crope_Advisory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_map_abcd">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_map" Type="Self.user_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_map">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_land_by_crope_user_land_by_crope_ibfk_1">
+    <End Role="user_map" Type="Self.user_map" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_land_by_crope" Type="Self.user_land_by_crope" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_map">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_land_by_crope">
+        <PropertyRef Name="Land_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="amdani_badaoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="base_weather" EntityType="Self.base_weather" />
+    <EntitySet Name="baseweathers" EntityType="Self.baseweather" />
+    <EntitySet Name="crop_advisory_by_crop" EntityType="Self.crop_advisory_by_crop" />
+    <EntitySet Name="crop_advisory_user_response" EntityType="Self.crop_advisory_user_response" />
+    <EntitySet Name="crop_yield_value" EntityType="Self.crop_yield_value" />
+    <EntitySet Name="cropes" EntityType="Self.crope" />
+    <EntitySet Name="cropvarietystags" EntityType="Self.cropvarietystag" />
+    <EntitySet Name="effective_rainfal" EntityType="Self.effective_rainfal" />
+    <EntitySet Name="irrigations" EntityType="Self.irrigation" />
+    <EntitySet Name="map_cordinates" EntityType="Self.map_cordinates" />
+    <EntitySet Name="new_dcc_crop" EntityType="Self.new_dcc_crop" />
+    <EntitySet Name="pesttypes" EntityType="Self.pesttype" />
+    <EntitySet Name="pestweatherbaselines" EntityType="Self.pestweatherbaseline" />
+    <EntitySet Name="stages" EntityType="Self.stage" />
+    <EntitySet Name="statepests" EntityType="Self.statepest" />
+    <EntitySet Name="stfs" EntityType="Self.stf" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="user_land_by_crope" EntityType="Self.user_land_by_crope" />
+    <EntitySet Name="user_map" EntityType="Self.user_map" />
+    <EntitySet Name="varieties" EntityType="Self.variety" />
+    <EntitySet Name="weathers" EntityType="Self.weather" />
+    <EntitySet Name="weather_master" EntityType="Self.weather_master" />
+    <EntitySet Name="crop_calculation" EntityType="Self.crop_calculation" />
+    <EntitySet Name="dists" EntityType="Self.dist" />
+    <EntitySet Name="states" EntityType="Self.state" />
+    <EntitySet Name="villages" EntityType="Self.village" />
+    <AssociationSet Name="crop_advisory_user_response_crop_advisory_user_response_ibfk_2" Association="Self.crop_advisory_user_response_crop_advisory_user_response_ibfk_2">
+      <End Role="user_land_by_crope" EntitySet="user_land_by_crope" />
+      <End Role="crop_advisory_user_response" EntitySet="crop_advisory_user_response" />
+    </AssociationSet>
+    <AssociationSet Name="user_map_abcd" Association="Self.user_map_abcd">
+      <End Role="user" EntitySet="users" />
+      <End Role="user_map" EntitySet="user_map" />
+    </AssociationSet>
+    <AssociationSet Name="user_land_by_crope_user_land_by_crope_ibfk_1" Association="Self.user_land_by_crope_user_land_by_crope_ibfk_1">
+      <End Role="user_map" EntitySet="user_map" />
+      <End Role="user_land_by_crope" EntitySet="user_land_by_crope" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+</Schema>
